@@ -302,11 +302,11 @@ tabs($('#stabs'),['All'].concat(Object.keys(SK)),'All',function(c){sc=c;skills()
 
 /* projects */
 var P=[
-{t:'Role-Based Student Management System',c:'fullstack',b:'Full Stack',tech:['Java','Spring Boot','JSP','MySQL'],f:['CRUD operations for student records','Input validation on every form','Role-based access control']},
-{t:'Food Ordering System',c:'fullstack',b:'Full Stack',tech:['Java','Spring Boot','Spring Data JPA','Hibernate','MySQL'],f:['Interactive cart','Checkout sequence','Category filtering']},
-{t:'Digital Agricultural Marketplace',c:'fullstack webapps',b:'MERN Stack',tech:['MongoDB','Express','React','Node'],f:['Cloud-based storage','Secure token authentication','Direct communication channels']},
-{t:'Weather Forecasting Application',c:'webapps',b:'Web App',tech:['JavaScript','React','Weather API'],f:['Dynamic city search','JSON response processing','Interactive UI']}];
-var pf='all';
+{t:'Role-Based Student Management System',c:'fullstack',b:'Full Stack',tech:['Java','Spring Boot','JSP','MySQL'],f:['CRUD operations for student records','Input validation on every form','Role-based access control'],demo:'https://your-demo-link.com',src:'https://github.com/yourname/student-management'},
+{t:'Food Ordering System',c:'fullstack',b:'Full Stack',tech:['Java','Spring Boot','Spring Data JPA','Hibernate','MySQL'],f:['Interactive cart','Checkout sequence','Category filtering'],demo:'https://your-demo-link.com',src:'https://github.com/PSanjana0912/Food-Ordering-System-SpringBoot'},
+{t:'Digital Agricultural Marketplace',c:'fullstack webapps',b:'MERN Stack',tech:['MongoDB','Express','React','Node'],f:['Cloud-based storage','Secure token authentication','Direct communication channels'],demo:'https://your-demo-link.com',src:'https://github.com/PSanjana0912/Agri-connect'},
+{t:'Weather Forecasting Application',c:'webapps',b:'Web App',tech:['JavaScript','React','Weather API'],f:['Dynamic city search','JSON response processing','Interactive UI'],demo:'https://realtime-weatherbuddy.netlify.app/',src:'https://github.com/PSanjana0912/Weather-Buddy'}];
+  var pf='all';
 function projects(){$('#pgrid').innerHTML=P.filter(function(p){return pf==='all'||p.c.indexOf(pf)>-1}).map(function(p,i){return '<article class="card" style="animation-delay:'+i*.07+'s"><span class="badge">'+p.b+'</span><h3>'+p.t+'</h3><ul>'+p.f.map(function(f){return '<li>'+f+'</li>'}).join('')+'</ul><div class="tags">'+p.tech.map(function(t){return '<span>'+t+'</span>'}).join('')+'</div><div class="links"><a href="#" class="ph"><svg class="ic"><use href="#i-ext"/></svg>Live demo</a><a href="#" class="ph"><svg class="ic"><use href="#i-gh"/></svg>Source code</a></div></article>'}).join('')}
 var map={'All':'all','Full Stack':'fullstack','Web Apps':'webapps'};
 tabs($('#ptabs'),['All','Full Stack','Web Apps'],'All',function(l){pf=map[l];projects()});projects();
