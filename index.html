@@ -305,15 +305,16 @@ var P=[
 {t:'Role-Based Student Management System',c:'fullstack',b:'Full Stack',tech:['Java','Spring Boot','JSP','MySQL'],f:['CRUD operations for student records','Input validation on every form','Role-based access control'],demo:'https://your-demo-link.com',src:'https://github.com/yourname/student-management'},
 {t:'Food Ordering System',c:'fullstack',b:'Full Stack',tech:['Java','Spring Boot','Spring Data JPA','Hibernate','MySQL'],f:['Interactive cart','Checkout sequence','Category filtering'],demo:'https://your-demo-link.com',src:'https://github.com/PSanjana0912/Food-Ordering-System-SpringBoot'},
 {t:'Digital Agricultural Marketplace',c:'fullstack webapps',b:'MERN Stack',tech:['MongoDB','Express','React','Node'],f:['Cloud-based storage','Secure token authentication','Direct communication channels'],demo:'https://your-demo-link.com',src:'https://github.com/PSanjana0912/Agri-connect'},
-{t:'Weather Forecasting Application',c:'webapps',b:'Web App',tech:['JavaScript','React','Weather API'],f:['Dynamic city search','JSON response processing','Interactive UI'],demo:'https://realtime-weatherbuddy.netlify.app/',src:'https://github.com/PSanjana0912/Weather-Buddy'}];
+{t:'Weather Forecasting Application',c:'webapps',b:'Web App',tech:['JavaScript','React','Weather API'],f:['Dynamic city search','JSON response processing','Interactive UI'],demo:'https://realtime-weatherbuddy.netlify.app/',src:'https://github.com/PSanjana0912/Weather-Buddy'},
+{t:'AI Interview Assistant',c:'tools',b:'Python & AI',tech:['Python','OpenAI API','OpenAI SDK'],f:['Generates technical interview questions by topic and difficulty, with answers, explanations, and common mistakes','Runs a five-question mock interview with LLM-based evaluation, feedback, scoring, and follow-up questions','Secure .env API-key management, input validation, and error handling with Colorama-styled CLI output'],src:'https://github.com/PSanjana0912/ai_interview_assisstant'}];
   var pf='all';
 function projects(){$('#pgrid').innerHTML=P.filter(function(p){return pf==='all'||p.c.indexOf(pf)>-1}).map(function(p,i){
-var demo=p.demo?'<a href="'+p.demo+'" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ext"/></svg>Live demo</a>':'<a href="#" class="ph"><svg class="ic"><use href="#i-ext"/></svg>Live demo</a>';
+var demo='demo' in p?(p.demo?'<a href="'+p.demo+'" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ext"/></svg>Live demo</a>':'<a href="#" class="ph"><svg class="ic"><use href="#i-ext"/></svg>Live demo</a>'):'';
 var src=p.src?'<a href="'+p.src+'" target="_blank" rel="noopener"><svg class="ic"><use href="#i-gh"/></svg>Source code</a>':'<a href="#" class="ph"><svg class="ic"><use href="#i-gh"/></svg>Source code</a>';
 return '<article class="card" style="animation-delay:'+i*.07+'s"><span class="badge">'+p.b+'</span><h3>'+p.t+'</h3><ul>'+p.f.map(function(f){return '<li>'+f+'</li>'}).join('')+'</ul><div class="tags">'+p.tech.map(function(t){return '<span>'+t+'</span>'}).join('')+'</div><div class="links">'+demo+src+'</div></article>';
 }).join('')}
-var map={'All':'all','Full Stack':'fullstack','Web Apps':'webapps'};
-tabs($('#ptabs'),['All','Full Stack','Web Apps'],'All',function(l){pf=map[l];projects()});projects();
+var map={'All':'all','Full Stack':'fullstack','Web Apps':'webapps','AI & Tools':'tools'};
+tabs($('#ptabs'),['All','Full Stack','Web Apps','AI & Tools'],'All',function(l){pf=map[l];projects()});projects();
 $('#pgrid').addEventListener('click',function(e){var a=e.target.closest('a.ph');if(a){e.preventDefault();toast('Placeholder link. Add your project URL in the code.')}});
 $('#pgrid').addEventListener('pointermove',function(e){var c=e.target.closest('.card');if(c){var r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}});
 
